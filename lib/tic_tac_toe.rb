@@ -85,8 +85,8 @@ def current_player
   turn_count % 2 == 1 ? 'O' : 'X'
 end
 
-def won?
- winner = WIN_COMBINATIONS.detect {|win_comb| win_comb.all? {|token| @board[token] == "X" || @board[token] == "O"}}
+def won?}
+ winner = WIN_COMBINATIONS.detect {|win_comb| win_comb.all? {|token| @board[token] == "X"} || win_comb.all? {@board[token] == "O"}}
  winner
 end
 
