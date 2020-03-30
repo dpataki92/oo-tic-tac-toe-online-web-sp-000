@@ -121,4 +121,20 @@ def winner
   end
 end
 
+# method responsible for the game loop
+def play(board)
+
+  until over?(board) == true
+    turn(board)
+  end
+
+  if over?(board) == true
+    if won?(board) != nil
+      winner_token = winner(board)
+      puts "Congratulations #{winner_token}!"
+    elsif draw?(board) == true
+      puts "Cat's Game!"
+    end
+  end
+
 end
