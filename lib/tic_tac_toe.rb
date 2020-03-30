@@ -86,11 +86,48 @@ def current_player
 end
 
 def won?
- if WIN_COMBINATIONS.any? {|win_comb| win_comb.all? {|token| token == "X" || token == "O"}}
+ if WIN_COMBINATIONS.any? {|win_comb| win_comb.all? {|token| @board[token] == "X" || @board[token] == "O"}}
    win_comb
  else
    nil
  end
 end
+
+# returns true if the whole board is full
+def full?
+  @board.none? {|el| el == "" || el == " "}
+end
+
+# returns true if the board is full but the game has not been won, returns false if the game has not been won and the board is not full or if the game is won
+def draw?
+  if full?
+    won? == nil ? true : false
+  else
+    false
+  end
+end
+
+# returns true if the board has been won, is draw or is full
+def over?
+  if won? != nil || draw? == true || full? == true
+    true
+  else
+    false
+  end
+end
+
+# returns the winner token
+def winner
+  if won? != nil
+    winner_arr_firstindex = won?[0]
+    if board[winner_arr_firstindex] == "X"
+      "X"
+    else
+      "O"
+    end
+  end
+end
+
+
 
 end
