@@ -86,11 +86,8 @@ def current_player
 end
 
 def won?
- if WIN_COMBINATIONS.any? {|win_comb| win_comb.all? {|token| @board[token] == "X" || @board[token] == "O"}}
-   win_comb
- else
-   nil
- end
+ winner = WIN_COMBINATIONS.detect {|win_comb| win_comb.all? {|token| @board[token] == "X" || @board[token] == "O"}}
+ winner
 end
 
 # returns true if the whole board is full
