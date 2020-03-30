@@ -117,11 +117,7 @@ end
 def winner
   if won? != nil
     winner_arr_firstindex = won?[0]
-    if board[winner_arr_firstindex] == "X"
-      "X"
-    else
-      "O"
-    end
+    @board[winner_arr_firstindex] == "X" ? "X" : "O"
   end
 end
 
