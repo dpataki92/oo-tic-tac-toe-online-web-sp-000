@@ -106,7 +106,7 @@ end
 
 # returns true if the board has been won, is draw or is full
 def over?
-  if won? != nil || draw? == true || full? == true
+  if won? != nil || draw? || full?
     true
   else
     false
