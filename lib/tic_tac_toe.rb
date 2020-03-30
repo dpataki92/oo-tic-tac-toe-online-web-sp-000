@@ -122,17 +122,16 @@ def winner
 end
 
 # method responsible for the game loop
-def play(board)
+def play
 
-  until over?(board) == true
-    turn(board)
+  until over?
+    turn
   end
 
-  if over?(board) == true
-    if won?(board) != nil
-      winner_token = winner(board)
-      puts "Congratulations #{winner_token}!"
-    elsif draw?(board) == true
+  if over?
+    if won? != nil
+      puts "Congratulations #{winner}!"
+    elsif draw?
       puts "Cat's Game!"
     end
   end
